@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A.I.L. - Operación C.A.O.S.</title>
-    <!-- Tailwind CSS para estilos rápidos y modernos -->
+    <title>A.I.L. - Operación C.A.O.S. (Nivel Avanzado)</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Iconos Phosphor -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <!-- Fuente Monoespaciada tipo consola -->
+    <!-- Fuente Monoespaciada -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
 
-        /* Efecto de monitor CRT antiguo */
         .scanlines {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -30,22 +29,15 @@
             opacity: 0.4;
         }
 
-        /* Resplandor neón verde */
         .neon-box {
             box-shadow: 0 0 15px rgba(34, 197, 94, 0.2), inset 0 0 20px rgba(34, 197, 94, 0.1);
             border: 1px solid #166534;
         }
 
-        .neon-text {
-            text-shadow: 0 0 5px rgba(34, 197, 94, 0.8);
-        }
-        
-        .neon-text-red {
-            color: #ef4444;
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
-        }
+        .neon-text { text-shadow: 0 0 5px rgba(34, 197, 94, 0.8); }
+        .neon-text-red { color: #ef4444; text-shadow: 0 0 10px rgba(239, 68, 68, 0.8); }
+        .neon-text-blue { color: #3b82f6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.8); }
 
-        /* Animación de error (vibración) */
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
@@ -53,17 +45,12 @@
         }
         .shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #000; }
         ::-webkit-scrollbar-thumb { background: #166534; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
 
-        /* Modales */
-        .modal {
-            display: none;
-            backdrop-filter: blur(5px);
-        }
+        .modal { display: none; backdrop-filter: blur(5px); }
         .modal.active { display: flex; }
     </style>
 </head>
@@ -72,13 +59,12 @@
     <div class="scanlines"></div>
 
     <!-- Contenedor Principal (Terminal) -->
-    <div class="w-full max-w-4xl bg-gray-900/90 neon-box rounded-lg overflow-hidden relative z-10 flex flex-col shadow-2xl h-[90vh] md:h-[80vh]">
+    <div class="w-full max-w-5xl bg-gray-900/95 neon-box rounded-lg overflow-hidden relative z-10 flex flex-col shadow-2xl h-[95vh] md:h-[85vh]">
         
-        <!-- Barra superior -->
         <header class="bg-green-950 border-b border-green-800 text-green-400 px-4 py-3 flex justify-between items-center font-bold text-sm md:text-base">
             <div class="flex items-center gap-2">
                 <i class="ph-fill ph-terminal-window text-xl"></i>
-                <span class="tracking-wider">A.I.L. // TERMINAL_PRINCIPAL</span>
+                <span class="tracking-wider">A.I.L. // TERMINAL_PRINCIPAL_AVANZADO</span>
             </div>
             <div id="timer-container" class="hidden flex items-center gap-2 bg-black px-3 py-1 rounded border border-green-800 neon-text">
                 <i class="ph ph-clock text-lg"></i>
@@ -86,302 +72,427 @@
             </div>
         </header>
 
-        <!-- Área de Contenido -->
-        <main class="flex-grow p-6 md:p-10 overflow-y-auto relative flex flex-col">
+        <main class="flex-grow p-6 md:p-8 overflow-y-auto relative flex flex-col">
             
             <!-- PANTALLA 0: INICIO -->
             <section id="stage-0" class="flex flex-col items-center justify-center flex-grow text-center animate-fade-in">
                 <i class="ph ph-warning-octagon text-7xl mb-6 text-red-500 animate-pulse neon-text-red"></i>
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text-red tracking-widest uppercase">Brecha de Seguridad</h1>
-                <p class="text-lg md:text-xl mb-8 max-w-2xl text-green-400">
-                    El virus <span class="text-red-400 font-bold">C.A.O.S.</span> (Centro de Alteración y Ocultación Sintáctica) ha encriptado la base de datos global. La coherencia textual y la verdad están comprometidas. 
-                    Tienen 120 minutos para superar los 4 niveles del cortafuegos.
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text-red tracking-widest uppercase">Protocolo C.A.O.S. Detectado</h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl text-green-400 leading-relaxed">
+                    Atención, agentes. Un virus de fragmentación ha atacado la estructura profunda del lenguaje. La adecuación, coherencia y cohesión de nuestros documentos han sido corrompidas. 
+                    Si no restauramos los 8 nodos del cortafuegos en 120 minutos, la capacidad crítica de la sociedad se perderá para siempre.
                 </p>
                 <button onclick="startGame()" class="flex items-center gap-2 bg-green-800 text-black font-bold text-xl px-8 py-4 rounded hover:bg-green-500 transition-colors neon-box uppercase tracking-wider">
                     <i class="ph-fill ph-play-circle text-2xl"></i>
-                    Iniciar Recuperación
+                    Iniciar Desencriptación
                 </button>
             </section>
 
-            <!-- PANTALLA JUEGO (Fases 1 a 4) -->
-            <section id="game-stage" class="hidden flex-col flex-grow w-full max-w-3xl mx-auto">
+            <!-- PANTALLA JUEGO -->
+            <section id="game-stage" class="hidden flex-col flex-grow w-full max-w-4xl mx-auto">
                 
-                <!-- Indicador de progreso -->
-                <div class="mb-8 border-b border-green-900 pb-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2 text-yellow-400">
-                    <i class="ph-fill ph-lock-key"></i> 
-                    CORTAFUEGOS NIVEL <span id="current-level-display">1</span> / 6
-                </h2>
-                <div class="flex gap-2 mt-4" id="progress-bars">
-                        <!-- Las barras se generan por JS -->
-                    </div>
+                <div class="mb-6 border-b border-green-900 pb-4">
+                    <h2 class="text-2xl font-bold flex items-center gap-2 text-yellow-400">
+                        <i class="ph-fill ph-lock-key"></i> 
+                        CORTAFUEGOS NIVEL <span id="current-level-display">1</span> / 8
+                    </h2>
+                    <div class="flex gap-2 mt-4" id="progress-bars"></div>
                 </div>
 
-                <!-- Textos dinámicos de cada fase -->
-                <div class="flex-grow flex flex-col justify-center mb-8">
-                    <div id="stage-briefing" class="mb-6 space-y-4">
-                        <!-- Contenido inyectado vía JS -->
-                    </div>
+                <div class="flex-grow flex flex-col justify-start mb-4">
+                    <div id="stage-briefing" class="mb-6 space-y-4 text-base md:text-lg"></div>
 
-                    <!-- Botón para ver archivos de la prueba -->
-                    <button id="btn-view-files" onclick="openModal()" class="hidden mb-8 self-start flex items-center gap-2 bg-transparent border border-green-500 text-green-400 px-4 py-2 hover:bg-green-900 transition-colors rounded">
-                        <i class="ph ph-folder-open text-xl"></i>
-                        Ver Archivos Interceptados
+                    <button id="btn-view-files" onclick="openModal()" class="hidden mb-8 self-start flex items-center gap-2 bg-green-900/50 border-2 border-green-500 text-green-300 font-bold px-6 py-3 hover:bg-green-700 hover:text-white transition-colors rounded neon-box">
+                        <i class="ph ph-folder-open text-2xl"></i>
+                        ACCEDER A LOS ARCHIVOS DE LA PRUEBA
                     </button>
 
-                    <!-- Input de contraseña -->
-                    <form id="password-form" class="mt-auto w-full relative">
-                        <div class="flex items-center gap-4 bg-black/50 p-4 border border-green-800 rounded">
-                            <span class="text-3xl font-bold text-green-600">></span>
-                            <input
-                                type="text"
-                                id="password-input"
-                                class="bg-transparent outline-none text-2xl md:text-3xl w-full uppercase tracking-widest text-green-400 placeholder-green-900 focus:text-green-300"
-                                placeholder="INTRODUCIR CLAVE..."
-                                autocomplete="off"
-                            />
-                            <button type="submit" class="bg-green-800 text-black px-4 py-2 font-bold hover:bg-green-500 transition-colors rounded">
-                                ENTER
-                            </button>
+                    <form id="password-form" class="mt-auto w-full relative pt-4">
+                        <div class="flex flex-col md:flex-row items-stretch md:items-center gap-4 bg-black/60 p-4 border border-green-800 rounded">
+                            <span class="text-3xl font-bold text-green-600 hidden md:inline">></span>
+                            <input type="text" id="password-input" class="bg-transparent outline-none text-2xl w-full uppercase tracking-widest text-green-400 placeholder-green-900 focus:text-green-300 py-2" placeholder="INTRODUCIR CLAVE..." autocomplete="off"/>
+                            <button type="submit" class="bg-green-700 text-black px-8 py-3 font-bold hover:bg-green-500 transition-colors rounded w-full md:w-auto">ENTER</button>
                         </div>
-                        <div id="error-msg" class="hidden absolute -bottom-8 left-0 text-red-500 flex items-center gap-2 font-bold neon-text-red">
-                            <i class="ph-fill ph-warning"></i> ACCESO DENEGADO. CÓDIGO INCORRECTO.
+                        <div id="error-msg" class="hidden absolute -top-8 left-0 text-red-500 flex items-center gap-2 font-bold neon-text-red">
+                            <i class="ph-fill ph-warning"></i> ACCESO DENEGADO.
                         </div>
                     </form>
                 </div>
             </section>
 
-            <!-- PANTALLA 5: ÉXITO -->
+            <!-- PANTALLA ÉXITO -->
             <section id="stage-success" class="hidden flex-col items-center justify-center flex-grow text-center">
                 <i class="ph ph-check-circle text-8xl mb-6 text-green-500 neon-text"></i>
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text">SISTEMA RESTAURADO</h1>
                 <p class="text-xl md:text-2xl mb-8 text-green-200 max-w-2xl">
-                    Agentes, habéis purgado el virus C.A.O.S. La capacidad de argumentar y distinguir la verdad ha vuelto a la red.
+                    Agentes, el núcleo lingüístico es estable. Habéis demostrado un dominio absoluto de la teoría y la práctica comunicativa.
                 </p>
-                <div class="bg-black border border-green-500 p-4 rounded neon-box">
-                    <p class="text-gray-400">Tiempo restante al sellar el cortafuegos:</p>
-                    <p id="final-time" class="text-4xl font-bold neon-text mt-2">--:--</p>
+                <div class="bg-black border border-green-500 p-6 rounded neon-box">
+                    <p class="text-gray-400 uppercase tracking-widest text-sm">Tiempo restante en el servidor:</p>
+                    <p id="final-time" class="text-5xl font-bold neon-text mt-2">--:--</p>
                 </div>
             </section>
 
-            <!-- PANTALLA -1: GAME OVER -->
+            <!-- PANTALLA GAME OVER -->
             <section id="stage-fail" class="hidden flex-col items-center justify-center flex-grow text-center">
                 <i class="ph ph-skull text-8xl mb-6 text-red-600 neon-text-red"></i>
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text-red">SISTEMA BORRADO</h1>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text-red">BORRADO CRÍTICO</h1>
                 <p class="text-xl md:text-2xl text-red-400 max-w-2xl">
-                    El tiempo se ha agotado. La base de datos ha sido corrompida permanentemente por las Fake News y la incoherencia.
+                    El tiempo se ha agotado. El lenguaje ha perdido su estructura.
                 </p>
             </section>
 
         </main>
-        
-        <footer class="bg-black text-center py-2 text-xs text-green-900 border-t border-green-900 font-mono">
-            Agencia de Inteligencia Lingüística © 2026 // Nivel de Autorización: Docente
-        </footer>
     </div>
 
-    <!-- MODAL PARA ARCHIVOS INTERCEPTADOS -->
-    <div id="files-modal" class="modal fixed inset-0 z-50 items-center justify-center p-4 bg-black/80">
-        <div class="bg-gray-900 border border-green-600 w-full max-w-4xl h-[80vh] flex flex-col rounded neon-box">
-            <div class="bg-green-900 flex justify-between items-center px-4 py-2 text-black font-bold">
-                <span id="modal-title">Archivos de la Prueba</span>
-                <button onclick="closeModal()" class="hover:text-white"><i class="ph ph-x-square text-2xl"></i></button>
+    <!-- MODAL (ARCHIVOS) -->
+    <div id="files-modal" class="modal fixed inset-0 z-50 items-center justify-center p-2 md:p-4 bg-black/90">
+        <div class="bg-gray-900 border-2 border-green-600 w-full max-w-5xl h-[90vh] flex flex-col rounded shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+            <div class="bg-green-800 flex justify-between items-center px-6 py-3 text-black font-bold text-lg md:text-xl">
+                <div class="flex items-center gap-2"><i class="ph ph-files"></i> <span id="modal-title">VISOR DE DATOS</span></div>
+                <button onclick="closeModal()" class="hover:text-white transition-colors bg-green-950 px-2 py-1 rounded"><i class="ph ph-x text-2xl"></i></button>
             </div>
-            <div id="modal-content" class="p-6 overflow-y-auto text-green-300 font-sans text-lg space-y-6 flex-grow">
-                <!-- Contenido inyectado -->
+            <div id="modal-content" class="p-6 md:p-10 overflow-y-auto text-gray-300 font-sans text-base md:text-lg space-y-8 flex-grow">
+                <!-- Contenido dinámico -->
             </div>
         </div>
     </div>
 
-    <!-- LÓGICA DE JUEGO (Vanilla JS) -->
+    <!-- LÓGICA -->
     <script>
-        // CONFIGURACIÓN GLOBAL
-        const TOTAL_TIME = 7200; // 120 minutos en segundos
+        const TOTAL_TIME = 7200;
         let timeLeft = TOTAL_TIME;
         let currentStage = 0;
         let timerInterval = null;
 
-        // CLAVES (En mayúsculas)
         const PASSWORDS = {
-            1: "TEMA",
-            2: "3142",
-            3: "MODAL",
-            4: "DEDUCTIVA",
-            5: "VERDAD", // El profesor les da esta clave tras ver que han citado bien y detectado la fake news
-            6: "RESTAURAR" // Clave maestra del profesor tras el debate
+            1: "TEMA",       // Funciones
+            2: "NORMA",      // Adecuación
+            3: "3142",       // Cohesión
+            4: "MODAL",      // Modalización
+            5: "DEDUCTIVA",  // Argumentación
+            6: "ECOS",       // Figuras
+            7: "VERDAD",     // Fake News (Dada por profesor)
+            8: "RESTAURAR"   // Debate (Dada por profesor)
         };
 
-        // CONTENIDOS DE LAS PRUEBAS
         const STAGE_DATA = {
             1: {
                 briefing: `
-                    <p class="text-xl">> Analizando fragmentos textuales...</p>
-                    <p class="text-gray-400">> C.A.O.S. ha desvinculado los textos de su intención comunicativa y función del lenguaje.</p>
-                    <div class="bg-green-950/50 p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300">
-                        <p class="font-bold">MISIÓN:</p>
-                        <p>1. Abran los archivos interceptados.</p>
-                        <p>2. Emparejen cada texto (1, 2, 3, 4) con su Función del Lenguaje predominante.</p>
-                        <p>3. Usen la letra asignada a cada función en la tabla para formar la palabra clave (ordenadas del Texto 1 al 4).</p>
+                    <p class="text-xl text-green-400">> Módulo 1: Intención Comunicativa.</p>
+                    <p class="text-gray-400">> C.A.O.S. ha borrado las etiquetas de los mensajes. Un texto sin intención es ruido.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Analicen la "Base de Datos Teórica" sobre las Funciones del Lenguaje de Jakobson.</li>
+                            <li>Emparejen cada uno de los 4 textos interceptados con su función dominante.</li>
+                            <li>La clave es una palabra de 4 letras formada al ordenar las iniciales obtenidas del Texto 1 al 4.</li>
+                        </ul>
                     </div>
                 `,
                 hasFiles: true,
-                modalTitle: "DATOS_NIVEL_1.DAT",
+                modalTitle: "INTENCION_JAKOBSON.DAT",
                 modalHtml: `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-black p-4 border border-green-800 rounded">
-                            <h3 class="font-bold text-green-500 mb-2">TEXTO 1</h3>
-                            <p class="italic text-sm text-gray-400">"En el corazón de la noche, las estrellas susurraban secretos de luz a los durmientes."</p>
-                        </div>
-                        <div class="bg-black p-4 border border-green-800 rounded">
-                            <h3 class="font-bold text-green-500 mb-2">TEXTO 2</h3>
-                            <p class="italic text-sm text-gray-400">"¡No dejes escapar esta oportunidad única! Matricúlate hoy mismo y cambia tu futuro."</p>
-                        </div>
-                        <div class="bg-black p-4 border border-green-800 rounded">
-                            <h3 class="font-bold text-green-500 mb-2">TEXTO 3</h3>
-                            <p class="italic text-sm text-gray-400">"El adverbio es una clase de palabra invariable que modifica a un verbo, a un adjetivo o a otro adverbio."</p>
-                        </div>
-                        <div class="bg-black p-4 border border-green-800 rounded">
-                            <h3 class="font-bold text-green-500 mb-2">TEXTO 4</h3>
-                            <p class="italic text-sm text-gray-400">"La fotosíntesis es el proceso metabólico por el que las plantas convierten sustancias inorgánicas en orgánicas."</p>
-                        </div>
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-2">El lenguaje humano no solo sirve para transmitir datos objetivos. Roman Jakobson estableció 6 funciones según el elemento comunicativo que predomine:</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-blue-200 text-base">
+                            <li><strong>F. Representativa:</strong> Centrada en el <em>contexto</em>. Transmite información objetiva (ej. "Llueve"). [Letra: A]</li>
+                            <li><strong>F. Expresiva:</strong> Centrada en el <em>emisor</em>. Expresa sentimientos o emociones.</li>
+                            <li><strong>F. Apelativa/Conativa:</strong> Centrada en el <em>receptor</em>. Busca influir, ordenar o convencer (muy usada en publicidad). [Letra: E]</li>
+                            <li><strong>F. Fática:</strong> Centrada en el <em>canal</em>. Asegura que la comunicación funciona (ej. "¿Me oyes?").</li>
+                            <li><strong>F. Metalingüística:</strong> Centrada en el <em>código</em>. Usa la lengua para explicar reglas de la propia lengua (ej. gramática). [Letra: M]</li>
+                            <li><strong>F. Poética:</strong> Centrada en el <em>mensaje</em>. Importa más la forma y la belleza estética del texto (literatura, eslóganes). [Letra: T]</li>
+                        </ul>
                     </div>
                     
-                    <div class="mt-8 bg-gray-800 p-4 rounded border border-yellow-600">
-                        <h3 class="font-bold text-yellow-400 mb-4 text-center">TABLA DE FUNCIONES DEL LENGUAJE</h3>
-                        <table class="w-full text-left border-collapse">
-                            <thead><tr class="border-b border-gray-600"><th class="py-2">Función del lenguaje</th><th class="py-2 text-center">Letra Asociada</th></tr></thead>
-                            <tbody>
-                                <tr class="border-b border-gray-700"><td>Función Metalingüística (Explicar el propio código)</td><td class="text-center text-xl font-bold text-green-400">M</td></tr>
-                                <tr class="border-b border-gray-700"><td>Función Representativa o Referencial (Transmitir información objetiva)</td><td class="text-center text-xl font-bold text-green-400">A</td></tr>
-                                <tr class="border-b border-gray-700"><td>Función Apelativa o Conativa (Influir en el receptor)</td><td class="text-center text-xl font-bold text-green-400">E</td></tr>
-                                <tr><td>Función Poética o Estética (Llamar la atención sobre la forma del mensaje)</td><td class="text-center text-xl font-bold text-green-400">T</td></tr>
-                            </tbody>
-                        </table>
+                    <h3 class="text-green-400 font-bold text-xl mb-4">ARCHIVOS INTERCEPTADOS:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-black p-5 border border-green-800 rounded shadow-lg">
+                            <span class="text-green-600 font-bold text-sm block mb-2">ID: TEXTO 1</span>
+                            <p class="italic text-gray-300">"El viento besaba suavemente la superficie del lago dormido, tejiendo hilos de plata bajo la luna."</p>
+                        </div>
+                        <div class="bg-black p-5 border border-green-800 rounded shadow-lg">
+                            <span class="text-green-600 font-bold text-sm block mb-2">ID: TEXTO 2</span>
+                            <p class="italic text-gray-300">"¡Atención ciudadanos! No dejen sus vehículos estacionados en esta vía a partir de mañana. Respeten la señalización."</p>
+                        </div>
+                        <div class="bg-black p-5 border border-green-800 rounded shadow-lg">
+                            <span class="text-green-600 font-bold text-sm block mb-2">ID: TEXTO 3</span>
+                            <p class="italic text-gray-300">"En español, los sustantivos abstractos designan conceptos que no pueden percibirse por los sentidos, como la justicia o el amor."</p>
+                        </div>
+                        <div class="bg-black p-5 border border-green-800 rounded shadow-lg">
+                            <span class="text-green-600 font-bold text-sm block mb-2">ID: TEXTO 4</span>
+                            <p class="italic text-gray-300">"El producto interior bruto de la eurozona experimentó un crecimiento del 0,3% durante el último trimestre."</p>
+                        </div>
                     </div>
                 `
             },
             2: {
                 briefing: `
-                    <p class="text-xl">> Reconstruyendo la cohesión textual...</p>
-                    <p class="text-gray-400">> C.A.O.S. ha desordenado los mecanismos gramaticales que unen las frases.</p>
-                    <div class="bg-green-950/50 p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300">
-                        <p class="font-bold">MISIÓN:</p>
-                        <p>1. Lean el texto del archivo.</p>
-                        <p>2. Relacionen los elementos destacados (A, B, C, D) con su mecanismo de cohesión gramatical correspondiente (1, 2, 3, 4).</p>
-                        <p>3. Introduzcan la combinación numérica de 4 cifras exactas en orden de A, B, C y D (Ej: 1234).</p>
+                    <p class="text-xl text-green-400">> Módulo 2: Adecuación y Registros.</p>
+                    <p class="text-gray-400">> Una carta de máxima autoridad ha sido reescrita por el virus utilizando registros vulgares y coloquiales impropios de un ámbito institucional.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Revisen la carta formal en los archivos.</li>
+                            <li>Identifiquen las 4 expresiones impropias (coloquialismos).</li>
+                            <li>Sustituyan mentalmente esos coloquialismos por su equivalente formal. La respuesta global a este nivel es la palabra clave que define al conjunto de reglas que establecen el uso correcto de una lengua en situaciones formales (empieza por N...).</li>
+                        </ul>
                     </div>
                 `,
                 hasFiles: true,
-                modalTitle: "COHESION_ROTA.TXT",
+                modalTitle: "ADECUACION_CARTA_OFICIAL.TXT",
                 modalHtml: `
-                    <div class="bg-black p-6 border border-green-800 rounded mb-6">
-                        <p class="text-gray-300 leading-relaxed text-lg">
-                            "María compró un libro fascinante. <strong>[A: Ella]</strong> lo leyó en apenas dos días. Te lo advierto <strong>[B: desde este momento]</strong>: el final es muy triste. A Juan le encantó la adaptación cinematográfica; a mí <strong>[C: Ø]</strong>, la obra original. <strong>[D: En conclusión]</strong>, tenemos gustos muy diferentes."
-                        </p>
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-2">La <strong>Adecuación</strong> es la propiedad textual que garantiza que el texto se adapte a la situación comunicativa. Depende del emisor, receptor, canal y contexto.</p>
+                        <p class="mb-2">Los <strong>registros lingüísticos</strong> varían entre formal (cuidado, elaborado, propio del ámbito académico o administrativo) e informal/coloquial (espontáneo, familiar).</p>
+                        <p>Los <em>vulgarismos</em> o el uso excesivo de jerga en un texto oficial violan la adecuación y restan credibilidad al mensaje.</p>
                     </div>
-                    
-                    <div class="bg-gray-800 p-4 border border-blue-800 rounded mt-6">
-                        <h3 class="font-bold text-blue-400 mb-4 text-center">MECANISMOS DE COHESIÓN</h3>
-                        <ul class="text-left space-y-4 font-mono">
-                            <li><strong>1. Catáfora:</strong> Elemento que anticipa algo que se va a decir a continuación.</li>
-                            <li><strong>2. Marcador discursivo:</strong> Enlace que organiza el texto y muestra la relación lógica entre oraciones.</li>
-                            <li><strong>3. Anáfora:</strong> Pronombre que sustituye a un elemento ya mencionado anteriormente en el texto.</li>
-                            <li><strong>4. Elipsis:</strong> Omisión de un elemento (como un verbo) que se sobreentiende por el contexto.</li>
-                        </ul>
+
+                    <div class="bg-[#fdfbf7] text-black p-8 md:p-12 font-serif shadow-2xl relative">
+                        <div class="absolute top-0 right-0 bg-red-600 text-white px-3 py-1 font-mono text-xs font-bold">ERROR DE REGISTRO DETECTADO</div>
+                        <h2 class="text-right mb-8">Madrid, a 14 de Noviembre de 2026<br>A la atención del Director de la Agencia A.I.L.</h2>
+                        <p class="mb-4">Estimado señor Director,</p>
+                        <p class="mb-4 leading-relaxed text-lg">Me dirijo a usted mediante el presente escrito para comunicarle que el proyecto de desencriptación ha finalizado con éxito. Durante meses nuestro equipo ha trabajado <strong>a saco</strong> para cumplir los plazos previstos en la normativa europea.</p>
+                        <p class="mb-4 leading-relaxed text-lg">No obstante, debemos señalar que los fondos asignados para esta tarea <strong>son una miseria</strong> y no alcanzan para cubrir las necesidades del personal de ciberseguridad. Le rogamos que, en la próxima junta directiva, <strong>se enrolle</strong> y apruebe una partida presupuestaria de emergencia.</p>
+                        <p class="mb-8 leading-relaxed text-lg">Sin otro particular, y esperando que no <strong>nos deje tirados</strong>, me despido atentamente.</p>
+                        <p class="font-bold">Fdo: Subdirectora de Operaciones Tácticas.</p>
+                    </div>
+                    <div class="mt-6 p-4 border border-yellow-600 bg-yellow-900/20 rounded text-yellow-400 font-mono text-center">
+                        > PREGUNTA DEL SISTEMA: ¿Qué palabra define el conjunto de reglas dictadas por la RAE que debemos respetar en un texto formal? (5 letras)
                     </div>
                 `
             },
             3: {
                 briefing: `
-                    <p class="text-xl">> Analizando el escáner de Modalización...</p>
-                    <p class="text-gray-400">> Debemos medir el grado de subjetividad de este artículo de opinión periodística.</p>
-                    <div class="bg-green-950/50 p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300">
-                        <p class="font-bold">MISIÓN:</p>
-                        <p>1. Abran el texto interceptado.</p>
-                        <p>2. Identifiquen los 5 adjetivos valorativos (marcas de subjetividad) resaltados en <strong>negrita</strong>.</p>
-                        <p>3. Tomen la primera letra de cada uno de esos 5 adjetivos en el orden de lectura.</p>
-                        <p>4. La unión de esas 5 letras formará la contraseña de este nivel.</p>
+                    <p class="text-xl text-green-400">> Módulo 3: Cohesión Textual Avanzada.</p>
+                    <p class="text-gray-400">> Un texto debe estar entrelazado como una red. C.A.O.S. ha cortado los enlaces gramaticales y léxicos.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Lean la teoría sobre cohesión.</li>
+                            <li>En el texto, encontrarán 4 elementos subrayados y enumerados [A, B, C, D].</li>
+                            <li>Identifiquen a qué mecanismo (1, 2, 3 o 4) pertenece cada uno y formen el código numérico.</li>
+                        </ul>
                     </div>
                 `,
                 hasFiles: true,
-                modalTitle: "MODALIZADOR_LEXICO.DOC",
+                modalTitle: "ANALISIS_SINTACTICO_COHESION.LOG",
                 modalHtml: `
-                    <div class="bg-black p-6 border border-green-800 rounded mb-6 text-gray-300 leading-relaxed text-lg">
-                        <h3 class="font-bold text-green-500 mb-4 text-2xl">El declive del silencio</h3>
-                        <p>Resulta evidente para cualquiera que viva en esta ciudad ruidosa que el silencio se ha convertido en un bien escaso y, me atrevería a decir, en un privilegio <strong>maravilloso</strong>. Es profundamente <strong>ofensivo</strong> que las administraciones no hagan nada al respecto. El ruido constante de las obras y el tráfico genera un estrés <strong>desastroso</strong> en la población. Me parece muy <strong>alarmante</strong> que estemos normalizando esta situación sin protestar. Es, en todos los sentidos, un panorama <strong>lamentable</strong> para nuestro bienestar mental.</p>
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-2">La <strong>Cohesión</strong> es la propiedad que une las distintas partes de un texto. Se logra mediante mecanismos:</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-blue-200">
+                            <li><strong>Gramaticales:</strong>
+                                <ul class="list-[circle] list-inside ml-6 mt-1">
+                                    <li><em>Anáfora:</em> Palabra (suele ser pronombre) que sustituye a un elemento mencionado ANTES.</li>
+                                    <li><em>Catáfora:</em> Palabra que anticipa algo que se va a mencionar DESPUÉS.</li>
+                                    <li><em>Elipsis:</em> Omisión de una palabra que se sobreentiende por el contexto.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Léxico-semánticos:</strong>
+                                <ul class="list-[circle] list-inside ml-6 mt-1">
+                                    <li><em>Sinonimia:</em> Sustituir un término por otro de igual significado para evitar repeticiones.</li>
+                                    <li><em>Hiperonimia/Hiponimia:</em> Uso de palabras de significado amplio (flor) para englobar otras específicas (rosa).</li>
+                                </ul>
+                            </li>
+                            <li><strong>Conectores discursivos:</strong> Enlaces lógicos (sin embargo, además, por lo tanto).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black p-8 border border-green-800 rounded mb-6 text-gray-300 leading-relaxed text-xl shadow-[inset_0_0_20px_rgba(0,255,0,0.05)]">
+                        <p>
+                            El inspector Ramírez investigaba el robo de un lienzo renacentista de incalculable valor. <strong>[A: Él]</strong> sabía que el culpable estaba cerca. Solo tenía dos sospechosos <strong>[B: en mente]</strong>: el guardia de seguridad y la directora del museo. Al final, las huellas delataron a la directora; el motivo del robo, <strong>[C: Ø]</strong>, las grandes deudas de su familia. <strong>[D: En conclusión]</strong>, el crimen rara vez compensa.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-center mt-6">
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600"><strong>1. Catáfora</strong></div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600"><strong>2. Marcador de Cierre</strong></div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600"><strong>3. Anáfora</strong></div>
+                        <div class="bg-gray-800 p-3 rounded border border-gray-600"><strong>4. Elipsis Verbal</strong></div>
                     </div>
                 `
             },
             4: {
                 briefing: `
-                    <p class="text-xl">> Reconstruyendo la arquitectura argumentativa...</p>
-                    <p class="text-gray-400">> Necesitamos identificar dónde se ubica la idea principal (Tesis).</p>
-                    <div class="bg-green-950/50 p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300">
-                        <p class="font-bold">MISIÓN:</p>
-                        <p>1. Lean el fragmento y localicen la Tesis (la idea central que se defiende).</p>
-                        <p>2. Analicen si la tesis está al principio (Estructura Deductiva), al final (Estructura Inductiva) o en ambos lugares (Estructura Encuadrada).</p>
-                        <p>3. La clave de este nivel es el nombre exacto de la estructura argumentativa de este texto (una sola palabra).</p>
+                    <p class="text-xl text-green-400">> Módulo 4: Marcas de Modalización.</p>
+                    <p class="text-gray-400">> Un artículo de opinión intenta ocultarse bajo la apariencia de noticia objetiva. Hay que medir su subjetividad.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Estudien qué es la modalización.</li>
+                            <li>Busquen en el texto las 5 marcas de subjetividad (adjetivos valorativos) resaltadas.</li>
+                            <li>Extraigan la primera letra de cada adjetivo en orden de lectura para formar la clave.</li>
+                        </ul>
                     </div>
                 `,
                 hasFiles: true,
-                modalTitle: "ESTRUCTURA_ARG.TXT",
+                modalTitle: "MODALIZADOR_LEXICO.DOC",
                 modalHtml: `
-                    <div class="bg-black p-6 border border-green-800 rounded mb-6 text-gray-300 leading-relaxed text-lg">
-                        <p class="mb-4 text-green-400 font-bold underline">El sedentarismo digital es la nueva gran epidemia del siglo XXI, y debemos combatirla desde las escuelas.</p>
-                        <p class="mb-4">Según la Organización Mundial de la Salud (argumento de autoridad), el 80% de los adolescentes no realiza la actividad física diaria recomendada, prefiriendo el ocio frente a una pantalla. Esto genera problemas de salud similares a los que causaba el tabaquismo en décadas pasadas (argumento de analogía).</p>
-                        <p>Por ejemplo, en un instituto de Madrid, tras prohibir los móviles en el recreo, se observó un aumento del 40% en el uso de las pistas deportivas (argumento de ejemplificación y datos). Por tanto, la intervención educativa es urgente.</p>
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-2">Un texto es objetivo si se centra en los hechos (Noticia científica), pero está <strong>Modalizado</strong> o es Subjetivo cuando el autor deja su "huella" o valoración (Artículo de opinión, columna).</p>
+                        <p class="mb-2"><strong>Marcas lingüísticas de Modalización:</strong></p>
+                        <ul class="list-disc list-inside space-y-1 mt-2 text-blue-200">
+                            <li>Deícticos de 1ª persona (<em>Yo creo, a mí me parece, nosotros debemos</em>).</li>
+                            <li><strong>Adjetivos valorativos</strong> que implican juicio (<em>bueno, nefasto, precioso, trágico</em>). ¡Son la clave de esta prueba!</li>
+                            <li>Verbos de pensamiento/sentimiento (<em>pienso, lamento, deseo</em>).</li>
+                            <li>Adverbios de modo valorativos (<em>lamentablemente, afortunadamente</em>).</li>
+                            <li>Signos de puntuación emocionales (admiraciones, puntos suspensivos irónicos).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black p-8 border border-green-800 rounded mb-6 text-gray-300 leading-relaxed text-xl">
+                        <h3 class="font-bold text-green-500 mb-6 text-3xl">El declive de nuestro patrimonio</h3>
+                        <p>Resulta evidente para cualquiera que pasee por el casco antiguo que el estado de los edificios históricos se ha convertido en un problema urgente y, me atrevería a decir, en un hecho <strong>m</strong>aravillosamente... no, perdón, en un hecho profundamente <strong>o</strong>fensivo para la ciudadanía. Que las autoridades locales miren hacia otro lado nos parece un error <strong>d</strong>esastroso. Es muy <strong>a</strong>larmante que estemos dejando caer los muros de nuestra memoria sin protestar. En resumen, el panorama actual es <strong>l</strong>amentable.</p>
                     </div>
                 `
             },
             5: {
                 briefing: `
-                    <p class="text-xl">> Escaneando servidor en busca de Fake News...</p>
-                    <p class="text-gray-400">> Ataque de desinformación detectado. Citas bibliográficas comprometidas.</p>
-                    <div class="bg-green-950/50 p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300">
-                        <p class="font-bold">MISIÓN FÍSICA:</p>
-                        <p>1. Revisen las "noticias" en los Archivos.</p>
-                        <p>2. Detecten cuál es la noticia FALSA y cuál es la VERDADERA basada en un estudio (Noticia C).</p>
-                        <p>3. Redacten en un papel la <strong>Referencia Bibliográfica formato APA</strong> del estudio científico de la Noticia C.</p>
-                        <p>4. Entreguen el papel al Game Master (Profesor) y justifiquen por qué la noticia B es falsa. Él les dará la clave.</p>
+                    <p class="text-xl text-green-400">> Módulo 5: Arquitectura Argumentativa.</p>
+                    <p class="text-gray-400">> Para defender la verdad, hay que saber construir argumentos. Identifiquen la estructura de los pilares textuales.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <p>Analicen el texto y localicen la TESIS. Dependiendo de dónde esté ubicada la tesis, el texto tendrá un tipo de estructura específica. La clave es el nombre de dicha estructura.</p>
                     </div>
                 `,
                 hasFiles: true,
-                modalTitle: "ANALIZADOR_DE_FUENTES.EXE",
+                modalTitle: "ESTRUCTURA_ARG.TXT",
                 modalHtml: `
-                    <div class="space-y-6">
-                        <div class="border border-red-800 bg-red-900/20 p-4 rounded">
-                            <h3 class="text-xl font-bold text-red-400 mb-2">NOTICIA B (Enlace: http://salud-y-secretos.com.co/noticias-ocultas)</h3>
-                            <h4 class="text-3xl font-black text-white mb-2">"¡URGENTE! Usar el móvil más de 2 horas al día reduce tu cerebro un 15% según médicos de Harvard"</h4>
-                            <p class="text-gray-300">Un estudio reciente que los gobiernos intentan ocultar revela que la luz azul literalmente disuelve materia gris. "Nunca habíamos visto algo así, es el fin de la humanidad", afirmó un científico que prefirió mantener el anonimato. Comparte esto antes de que lo borren.</p>
-                            <p class="text-xs text-gray-500 mt-2">Autor: Anónimo - Publicado hace 2 horas</p>
-                        </div>
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-2">Los textos argumentativos constan de una <strong>Tesis</strong> (idea principal que se defiende) y de <strong>Argumentos</strong> (razones, datos, ejemplos que la apoyan).</p>
+                        <p>Según la disposición lógica de la tesis, la estructura puede ser:</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2 text-blue-200">
+                            <li><strong>Estructura DEDUCTIVA (o Analizante):</strong> La Tesis aparece al PRINCIPIO del texto. Luego se deducen o exponen los argumentos que la demuestran.</li>
+                            <li><strong>Estructura INDUCTIVA (o Sintetizante):</strong> Comienza exponiendo hechos, datos y argumentos concretos, y la Tesis aparece al FINAL como conclusión lógica.</li>
+                            <li><strong>Estructura ENCUADRADA:</strong> La Tesis aparece al principio, se argumenta en el medio, y se vuelve a repetir o reafirmar al final del texto.</li>
+                        </ul>
+                    </div>
 
-                        <div class="border border-green-800 bg-green-900/20 p-4 rounded">
-                            <h3 class="text-xl font-bold text-green-400 mb-2">NOTICIA C (Portal Académico)</h3>
-                            <h4 class="text-2xl font-bold text-white mb-2">Nuevo artículo publicado en la Revista de Educación</h4>
-                            <p class="text-gray-300">Se ha indexado un nuevo artículo de investigación útil para su proyecto.</p>
-                            <div class="bg-black p-3 mt-2 font-mono text-sm">
-                                <p><strong>Autor(es):</strong> López Martínez, Carmen y Ruiz Silva, David.</p>
-                                <p><strong>Año:</strong> 2023</p>
-                                <p><strong>Título del artículo:</strong> Impacto cognitivo del consumo digital en adolescentes de Bachillerato.</p>
-                                <p><strong>Revista:</strong> Revista Iberoamericana de Psicología Educativa.</p>
-                                <p><strong>Volumen/Páginas:</strong> Vol. 14, pp. 45-62.</p>
-                            </div>
-                            <p class="mt-4 font-bold text-yellow-500">>> Elaboren la cita APA de este artículo en un papel.</p>
-                        </div>
+                    <div class="bg-black p-8 border border-green-800 rounded mb-6 text-gray-300 leading-relaxed text-xl">
+                        <p class="mb-6 border-l-4 border-green-500 pl-4 bg-green-900/10"><strong>[Párrafo 1]</strong> El uso de la Inteligencia Artificial generativa debe ser regulado inmediatamente en los centros educativos para evitar atrofiar el pensamiento crítico del alumnado.</p>
+                        <p class="mb-6"><strong>[Párrafo 2]</strong> Según un reciente estudio de la Universidad de Oxford, los estudiantes que delegan la redacción de sus ensayos en algoritmos muestran un empobrecimiento léxico del 20% en apenas un semestre académico.</p>
+                        <p><strong>[Párrafo 3]</strong> Asimismo, un caso en un instituto de Sevilla evidenció que el 80% de una clase copió errores factuales inventados por la máquina sin cuestionarlos. Por todas estas evidencias empíricas comprobables, no podemos mirar hacia otro lado.</p>
                     </div>
                 `
             },
             6: {
                 briefing: `
-                    <p class="text-xl text-red-400">> ANULACIÓN DE VOZ REQUERIDA...</p>
-                    <p class="text-gray-400">> El algoritmo de C.A.O.S. ha bloqueado el núcleo. Solo la argumentación humana oral puede desbloquearlo.</p>
-                    <div class="bg-red-950/50 p-4 border-l-4 border-red-500 mt-4 text-red-300">
-                        <p class="font-bold text-red-400 uppercase text-lg">Protocolo Final de Debate:</p>
-                        <p>1. Tienen 10 minutos para preparar un micro-discurso oral (1 minuto) respondiendo a: <strong>"¿Por qué el lenguaje, la educación y la verdad son esenciales para una sociedad libre?"</strong>.</p>
-                        <p>2. Debe tener Introducción (Tesis), 2 Argumentos sólidos (Ej. Datos, Autoridad) y Conclusión.</p>
-                        <p>3. El Game Master elegirá a un portavoz del equipo al azar para exponerlo ante la clase.</p>
-                        <p>4. Si superan la prueba de oratoria, el Game Master tecleará el Código Maestro de Restauración.</p>
+                    <p class="text-xl text-green-400">> Módulo 6: Figuras Retóricas (Armas de persuasión).</p>
+                    <p class="text-gray-400">> Los medios de comunicación y la publicidad utilizan la literatura para captar nuestra atención. Analicen los titulares.</p>
+                    <div class="bg-black p-4 border-l-4 border-yellow-500 mt-4 text-yellow-300 neon-box">
+                        <p class="font-bold mb-2">MISIÓN:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Revisen la teoría sobre retórica.</li>
+                            <li>En los archivos verán 4 titulares periodísticos. Cada uno usa un recurso estilístico claro.</li>
+                            <li>Descubran de qué figura retórica se trata en cada titular (Ej: Epíteto, Comparación...). La clave es la unión de la primera letra de esas 4 figuras en orden.</li>
+                        </ul>
+                    </div>
+                `,
+                hasFiles: true,
+                modalTitle: "ANALISIS_RETORICO_TITULARES.DAT",
+                modalHtml: `
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA</h3>
+                        <p class="mb-4">Las figuras retóricas alteran el uso normal del lenguaje. Son fundamentales en literatura, pero muy comunes en el periodismo y la publicidad:</p>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-200 text-sm md:text-base">
+                            <li><strong>Metáfora:</strong> Identificación de un término real con uno imaginario por semejanza ("Las perlas de tu boca").</li>
+                            <li><strong>Epíteto:</strong> Adjetivo que destaca una cualidad inherente o propia del sustantivo ("La blanca nieve").</li>
+                            <li><strong>Comparación (o Símil):</strong> Relaciona dos términos mediante un nexo expreso, como "como" o "parece" ("Fuerte como un roble").</li>
+                            <li><strong>Oxímoron:</strong> Unión de dos términos de significado opuesto que en apariencia se excluyen, creando un nuevo sentido ("Copia original", "Silencio atronador").</li>
+                            <li><strong>Sinestesia:</strong> Atribuir una sensación a un sentido que no le corresponde ("Un color chillón", "Voz dulce").</li>
+                            <li><strong>Hipérbole:</strong> Exageración evidente ("Te he llamado mil veces").</li>
+                            <li><strong>Metonimia:</strong> Designar algo con el nombre de otra cosa con la que guarda relación de causa-efecto, continente-contenido ("Se comió todo el plato", "Compró un Picasso").</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-black p-4 border border-green-800 rounded">
+                            <span class="text-gray-500 text-sm">TITULAR 1 (Cualidad inherente poética para el clima adverso):</span>
+                            <h3 class="text-2xl font-bold font-serif italic mt-1">"La <span class="text-yellow-400">fría nieve</span> colapsa de nuevo las autovías del norte."</h3>
+                        </div>
+                        <div class="bg-black p-4 border border-green-800 rounded">
+                            <span class="text-gray-500 text-sm">TITULAR 2 (Relación de similitud con un nexo explícito):</span>
+                            <h3 class="text-2xl font-bold font-serif italic mt-1">"La inflación sube de manera imparable, rápida <span class="text-yellow-400">como un cohete</span>."</h3>
+                        </div>
+                        <div class="bg-black p-4 border border-green-800 rounded">
+                            <span class="text-gray-500 text-sm">TITULAR 3 (Unión de opuestos que generan un nuevo significado irónico):</span>
+                            <h3 class="text-2xl font-bold font-serif italic mt-1">"Tras las elecciones, el pacto generó un <span class="text-yellow-400">caos ordenado</span> en el parlamento."</h3>
+                        </div>
+                        <div class="bg-black p-4 border border-green-800 rounded">
+                            <span class="text-gray-500 text-sm">TITULAR 4 (Mezcla de sentidos: auditivo visualizado en color):</span>
+                            <h3 class="text-2xl font-bold font-serif italic mt-1">"La cantante sorprendió en la gala con una <span class="text-yellow-400">voz oscura</span> y melancólica."</h3>
+                        </div>
+                    </div>
+                `
+            },
+            7: {
+                briefing: `
+                    <p class="text-xl text-green-400">> Módulo 7: Alfabetización Informacional (Fake News).</p>
+                    <p class="text-gray-400">> Nos atacan con desinformación. Es vital separar las fuentes fiables de los bulos.</p>
+                    <div class="bg-red-950/50 p-4 border-l-4 border-red-500 mt-4 text-red-200 neon-box">
+                        <p class="font-bold mb-2 uppercase text-red-400">MISIÓN FÍSICA Y VERIFICACIÓN:</p>
+                        <p class="mb-2">1. Abran el visor de noticias.</p>
+                        <p class="mb-2">2. Analicen cuál es el artículo fraudulento (Fake News) y anoten 3 razones objetivas de su falsedad.</p>
+                        <p class="mb-2">3. Del artículo académico verdadero, extraigan los datos y redacten en un papel su <strong>Referencia Bibliográfica en formato APA</strong>.</p>
+                        <p>4. Acérquense al <strong>Game Master (Profesor/a)</strong>. Entréguenle la cita y sus argumentos. Si están correctos, él les dictará la clave de desbloqueo.</p>
+                    </div>
+                `,
+                hasFiles: true,
+                modalTitle: "ANALIZADOR_DE_FUENTES.EXE",
+                modalHtml: `
+                    <div class="bg-blue-900/20 border border-blue-500 p-6 rounded mb-8">
+                        <h3 class="text-blue-400 font-bold text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-book-open"></i> BASE DE DATOS TEÓRICA: Normas APA 7ª Edición</h3>
+                        <p class="mb-2">Citar fuentes fiables evita el plagio y fundamenta tu argumentación. Para referenciar un artículo de revista científica académica, la estructura exacta es:</p>
+                        <p class="bg-black text-green-400 p-3 font-mono mt-2 mb-2 text-sm md:text-base border border-green-800">
+                            Apellido, A. A., & Apellido, B. B. (Año). Título del artículo. <em>Nombre de la Revista</em>, <em>Volumen</em>(Número), pp-pp.
+                        </p>
+                        <p class="text-blue-200 text-sm">Ejemplo: Pérez, M. (2022). La lectura en papel. <em>Revista Literaria, 5</em>, 12-25.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="border-2 border-red-800 bg-red-950/40 p-6 rounded relative overflow-hidden">
+                            <div class="absolute -right-10 top-4 bg-red-600 text-white px-12 py-1 transform rotate-45 font-bold text-xs uppercase shadow-xl">Sospechoso</div>
+                            <h3 class="text-xl font-bold text-red-400 mb-2">DOCUMENTO B // URL: http://verdad-oculta.com.co/viral</h3>
+                            <h4 class="text-3xl font-black text-white mb-4">"¡ESCÁNDALO! Usar el móvil más de 2 horas al día reduce tu cerebro un 15%."</h4>
+                            <p class="text-gray-300 text-lg">Un estudio reciente que los gobiernos intentan ocultar revela que la luz azul literalmente disuelve materia gris. "Nunca habíamos visto algo así, es el fin de la humanidad", afirmó un científico que prefirió mantener el anonimato. Comparte esto antes de que lo borren.</p>
+                            <p class="text-sm text-gray-500 mt-4 border-t border-red-800 pt-2">Autor: Anónimo - Publicado hace 2 horas - Categoría: Misterio</p>
+                        </div>
+
+                        <div class="border-2 border-green-800 bg-green-950/20 p-6 rounded relative overflow-hidden">
+                            <div class="absolute -right-10 top-4 bg-green-600 text-white px-12 py-1 transform rotate-45 font-bold text-xs uppercase shadow-xl">Verificado</div>
+                            <h3 class="text-xl font-bold text-green-400 mb-2">DOCUMENTO C // Portal Indexado Universitario</h3>
+                            <h4 class="text-2xl font-bold text-white mb-2">Nuevo artículo disponible en base de datos.</h4>
+                            <div class="bg-black p-4 mt-4 font-mono text-sm md:text-base text-gray-300 border border-green-800">
+                                <p class="mb-1"><span class="text-green-500 font-bold">Autor(es):</span> López Martínez, Carmen y Ruiz Silva, David.</p>
+                                <p class="mb-1"><span class="text-green-500 font-bold">Año de publicación:</span> 2023</p>
+                                <p class="mb-1"><span class="text-green-500 font-bold">Título del artículo:</span> Impacto cognitivo del consumo digital en adolescentes de Bachillerato.</p>
+                                <p class="mb-1"><span class="text-green-500 font-bold">Revista Científica:</span> Revista Iberoamericana de Psicología Educativa.</p>
+                                <p><span class="text-green-500 font-bold">Volumen / Páginas:</span> Vol. 14 / Páginas 45-62.</p>
+                            </div>
+                            <p class="mt-4 font-bold text-yellow-500 text-lg">> Instrucción: Elaboren la cita APA de este artículo en un papel y entréguenla al profesor.</p>
+                        </div>
+                    </div>
+                `
+            },
+            8: {
+                briefing: `
+                    <p class="text-2xl text-red-400 font-bold animate-pulse">> ADVERTENCIA CRÍTICA: ANULACIÓN DE VOZ REQUERIDA...</p>
+                    <p class="text-gray-300 text-lg">> El algoritmo de C.A.O.S. ha protegido el núcleo final. Solo la capacidad de argumentación humana oral, basada en las reglas de adecuación, cohesión y estructura que hemos purgado, puede desencriptarlo.</p>
+                    <div class="bg-red-950/40 p-6 border-l-4 border-red-500 mt-6 text-red-200 neon-box">
+                        <p class="font-bold text-red-400 uppercase text-xl mb-4 flex items-center gap-2"><i class="ph-fill ph-microphone-stage"></i> Protocolo Final de Debate</p>
+                        <p class="mb-3 font-bold text-white">Pregunta de Estado: "¿Por qué el lenguaje, el estudio de la literatura y la verdad son herramientas esenciales para ser libres en una sociedad democrática?"</p>
+                        <ul class="list-decimal list-inside space-y-2 mb-4">
+                            <li>Disponen de 10 minutos para preparar un micro-discurso (1 a 2 minutos) respondiendo a la pregunta.</li>
+                            <li>La exposición debe poseer una estructura clara (Tesis al principio, mínimo 2 argumentos de distinto tipo para apoyar, y Peroración final).</li>
+                            <li>Aseguren la adecuación: Usen un registro formal, presten atención a la entonación y al lenguaje no verbal (kinesia).</li>
+                            <li>El Game Master (Profesor/a) elegirá a un integrante del grupo al azar para exponer.</li>
+                        </ul>
+                        <p class="bg-black text-yellow-400 p-3 text-center border border-yellow-600">Si el discurso es brillante, el Game Master introducirá personalmente el CÓDIGO MAESTRO en esta terminal.</p>
                     </div>
                 `,
                 hasFiles: false,
@@ -425,7 +536,7 @@
                 timeLeft--;
                 elTimerDisplay.textContent = formatTime(timeLeft);
                 
-                if (timeLeft <= 300) { // Menos de 5 minutos
+                if (timeLeft <= 600) { // Menos de 10 minutos
                     elTimerDisplay.classList.add('text-red-500', 'animate-pulse');
                 }
 
@@ -452,9 +563,9 @@
             
             // Render barras de progreso
             elProgressBars.innerHTML = '';
-            for(let i=1; i<=6; i++) {
+            for(let i=1; i<=8; i++) {
                 const bar = document.createElement('div');
-                bar.className = `h-2 flex-grow rounded ${i < currentStage ? 'bg-green-500' : i === currentStage ? 'bg-yellow-500 animate-pulse' : 'bg-gray-700'}`;
+                bar.className = `h-2 flex-grow rounded ${i < currentStage ? 'bg-green-500' : i === currentStage ? 'bg-yellow-500 animate-pulse shadow-[0_0_10px_yellow]' : 'bg-gray-800'}`;
                 elProgressBars.appendChild(bar);
             }
 
@@ -470,8 +581,8 @@
                 elBtnFiles.classList.add('hidden');
             }
 
-            // Cambiar placeholder para códigos numéricos
-            if (currentStage === 2) {
+            // Preparar input
+            if (currentStage === 3) {
                 elInput.type = "number";
                 elInput.placeholder = "CÓDIGO NUMÉRICO...";
             } else {
@@ -490,7 +601,7 @@
             
             if (attempt === PASSWORDS[currentStage]) {
                 // Correcto
-                if (currentStage < 6) {
+                if (currentStage < 8) {
                     currentStage++;
                     loadStage();
                 } else {
@@ -499,12 +610,12 @@
             } else {
                 // Incorrecto
                 elForm.classList.add('shake');
-                elInput.classList.add('border-red-500', 'text-red-500');
+                elInput.classList.add('border-red-500', 'text-red-500', 'bg-red-900/20');
                 elErrorMsg.classList.remove('hidden');
                 
                 setTimeout(() => {
                     elForm.classList.remove('shake');
-                    elInput.classList.remove('border-red-500', 'text-red-500');
+                    elInput.classList.remove('border-red-500', 'text-red-500', 'bg-red-900/20');
                     elErrorMsg.classList.add('hidden');
                     elInput.value = '';
                     elInput.focus();
@@ -536,10 +647,10 @@
             elTimerContainer.classList.add('hidden');
         }
 
-        // Focus persistente en input (opcional para evitar que pierdan el foco)
-        document.addEventListener('click', (e) => {
-            if (currentStage > 0 && currentStage <= 6 && !elModal.classList.contains('active')) {
-                // elInput.focus(); // Descomentar si se quiere forzar el foco
+        // Tecla ESC para cerrar modal
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && elModal.classList.contains('active')){
+                closeModal();
             }
         });
 
